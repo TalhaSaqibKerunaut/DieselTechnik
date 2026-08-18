@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EncryptionKey__c</fullName>
+    <description>AES-256 key used to encrypt/decrypt lead and account IDs in Refer To Partner feedback links. Must match the key in KS_ReferToPartnerHandler (VF page) until that class is migrated.</description>
+    <externalId>false</externalId>
+    <label>Encryption Key</label>
+    <length>32</length>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

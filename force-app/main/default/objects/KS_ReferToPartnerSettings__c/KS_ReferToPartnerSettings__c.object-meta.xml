@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Stores runtime secrets for the Refer To Partner email service. Do not expose fields to non-admin profiles.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Refer To Partner Settings</label>
+    <visibility>Public</visibility>
+</CustomObject>

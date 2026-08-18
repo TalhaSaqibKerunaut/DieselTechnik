@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Translated email content per language and email type for the Refer To Partner feature. Adding a new language requires only a new record — no code changes.</description>
+    <label>Refer Partner Content</label>
+    <pluralLabel>Refer Partner Contents</pluralLabel>
+</CustomObject>
