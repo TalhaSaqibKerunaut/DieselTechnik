@@ -42,6 +42,16 @@ $RECYCLE.BIN/
 # Local environment variables
 .env
 
+# Retrieved-from-org reference files (not part of source deployments)
+force-app/main/default/classes/KS_ReferToPartnerHandler.cls
+force-app/main/default/classes/KS_ReferToPartnerHandler.cls-meta.xml
+force-app/main/default/classes/KS_ReferToPartnerReminder.cls
+force-app/main/default/classes/KS_ReferToPartnerReminder.cls-meta.xml
+force-app/main/default/email/unfiled$public/Refer_To_Partner_EN_1705320576898.email
+force-app/main/default/email/unfiled$public/Refer_To_Partner_EN_1705320576898.email-meta.xml
+force-app/main/default/flows/
+force-app/main/default/pages/
+
 # Python Salesforce Functions
 **/__pycache__/
 **/.venv/
