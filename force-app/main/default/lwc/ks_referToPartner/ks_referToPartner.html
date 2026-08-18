@@ -1,0 +1,100 @@
+<template>
+    <!-- Loading state -->
+    <template lwc:if={isLoading}>
+        <div class="slds-is-relative slds-p-around_large">
+            <lightning-spinner alternative-text="Loading partners..." size="medium"></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- Error state -->
+    <template lwc:elseif={errorMessage}>
+        <div class="slds-p-around_medium">
+            <div class="slds-notify slds-notify_alert slds-alert_error" role="alert">
+                <lightning-icon icon-name="utility:error" alternative-text="Error"
+                    size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                {errorMessage}
+            </div>
+        </div>
+    </template>
+
+    <!-- Main content -->
+    <template lwc:else>
+        <div class="slds-p-around_medium">
+
+            <!-- Regional / Preferred Partners -->
+            <h2 class="slds-text-heading_small slds-m-bottom_x-small">
+                Regional Partners
+            </h2>
+            <template lwc:if={hasPreferredAccounts}>
+                <lightning-datatable
+                    key-field="id"
+                    data={preferredAccounts}
+                    columns={columns}
+                    selected-rows={selectedIds}
+                    onrowselection={handleRowSelection}
+                    hide-checkbox-column={false}
+                    max-row-selection="50"
+                ></lightning-datatable>
+            </template>
+            <template lwc:else>
+                <p class="slds-text-color_weak slds-m-bottom_small">No regional partners found for this lead&apos;s country.</p>
+            </template>
+
+            <!-- Other Partners (collapsible) -->
+            <template lwc:if={hasOtherAccounts}>
+                <div class="slds-m-top_medium">
+                    <button class="slds-button slds-button_neutral slds-m-bottom_x-small"
+                        onclick={toggleOtherAccounts}>
+                        <lightning-icon icon-name={otherSectionIcon} size="x-small"
+                            class="slds-m-right_xx-small"></lightning-icon>
+                        Other Partners ({otherAccountsCount})
+                    </button>
+                    <template lwc:if={showOtherAccounts}>
+                        <lightning-datatable
+                            key-field="id"
+                            data={otherAccounts}
+                            columns={columns}
+                            selected-rows={selectedIds}
+                            onrowselection={handleRowSelection}
+                            hide-checkbox-column={false}
+                            max-row-selection="50"
+                        ></lightning-datatable>
+                    </template>
+                </div>
+            </template>
+
+            <!-- Comments -->
+            <div class="slds-m-top_medium">
+                <lightning-textarea
+                    label="Comments (optional)"
+                    value={comments}
+                    onchange={handleCommentChange}
+                    max-length="2000"
+                    placeholder="Add a personal note for the partner..."
+                ></lightning-textarea>
+            </div>
+
+            <!-- Selection summary -->
+            <template lwc:if={hasSelections}>
+                <p class="slds-text-color_weak slds-m-top_x-small">
+                    {selectedCount} partner(s) selected
+                </p>
+            </template>
+        </div>
+
+        <!-- Footer actions -->
+        <div class="slds-modal__footer slds-theme_default">
+            <lightning-button
+                label="Cancel"
+                onclick={handleCancel}
+                class="slds-m-right_x-small"
+            ></lightning-button>
+            <lightning-button
+                variant="brand"
+                label="Send Referral"
+                onclick={handleSubmit}
+                disabled={isSubmitDisabled}
+            ></lightning-button>
+        </div>
+    </template>
+</template>
