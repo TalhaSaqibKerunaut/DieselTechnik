@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>KS_RTP_InitialShellTemplate</fullName>
+        <categories>ReferToPartner</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeveloperName of the Initial shell email template used by KS_ReferToPartnerEmailService</shortDescription>
+        <value>KS_RTP_Initial_Shell</value>
+    </labels>
+    <labels>
+        <fullName>KS_RTP_ReminderShellTemplate</fullName>
+        <categories>ReferToPartner</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>DeveloperName of the Reminder shell email template used by KS_ReferToPartnerEmailService</shortDescription>
+        <value>KS_RTP_Reminder_Shell</value>
+    </labels>
+</CustomLabels>

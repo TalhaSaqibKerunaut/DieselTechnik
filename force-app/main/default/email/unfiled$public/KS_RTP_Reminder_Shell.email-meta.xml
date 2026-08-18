@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>UTF-8</encodingKey>
+    <name>KS RTP Reminder Shell</name>
+    <style>none</style>
+    <subject>Refer To Partner Reminder</subject>
+    <textOnly>Shell template for Refer To Partner reminder email. HTML body contains {EmailContent} placeholder replaced at runtime by KS_ReferToPartnerEmailService.</textOnly>
+    <type>html</type>
+    <uiType>SFX</uiType>
+</EmailTemplate>
