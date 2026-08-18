@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Reminder ES</label>
+    <protected>false</protected>
+    <values>
+        <field>LanguageCode__c</field>
+        <value xsi:type="xsd:string">ES</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Reminder</value>
+    </values>
+    <values>
+        <field>Subject__c</field>
+        <value xsi:type="xsd:string">Su solicitud en www.dieseltechnic.com; www.dt-spareparts.com</value>
+    </values>
+    <values>
+        <field>BodyHtml__c</field>
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Le agradecemos de nuevo su interés por Diesel Technic Group y nuestros productos de la marca DT Spare Parts. Tras una comprobación interna, hace dos semanas le facilitamos un contacto directo con nuestros socios distribuidores. Nos gustaría hacer un seguimiento para saber si han podido satisfacer sus necesidades. Por ello, nos gustaría conocer su opinión. Por favor, háganos saber lo siguiente:&lt;/p&gt;
+{AccountInfo}
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
+    </values>
+    <values>
+        <field>IsDefault__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>FeedbackLabelBuyDT__c</field>
+        <value xsi:type="xsd:string">Compré recambios DT en otra tienda</value>
+    </values>
+    <values>
+        <field>FeedbackLabelOtherBrand__c</field>
+        <value xsi:type="xsd:string">Compré otra marca</value>
+    </values>
+    <values>
+        <field>FeedbackLabelDidNotBuy__c</field>
+        <value xsi:type="xsd:string">No compré nada</value>
+    </values>
+</CustomMetadata>

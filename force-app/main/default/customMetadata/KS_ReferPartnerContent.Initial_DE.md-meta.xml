@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Initial DE</label>
+    <protected>false</protected>
+    <values>
+        <field>LanguageCode__c</field>
+        <value xsi:type="xsd:string">DE</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Initial</value>
+    </values>
+    <values>
+        <field>Subject__c</field>
+        <value xsi:type="xsd:string">Ihre Anfrage an www.dieseltechnic.com; www.dt-spareparts.com</value>
+    </values>
+    <values>
+        <field>BodyHtml__c</field>
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, vielen Dank für Ihre Anfrage und Ihr Interesse an der Diesel Technic Group und den Produkten der Marke DT Spare Parts. Nach interner Prüfung Ihrer Anfrage möchten wir Ihnen gerne einen direkten Kontakt zu unseren regionalen Vertriebspartnern vermitteln:&lt;/p&gt;
+{AccountInfo}
+{Comment}
+&lt;p&gt;Der Vertriebspartner stellt Ihnen gerne weitere Produktinformationen zur Verfügung und freut sich auf Ihre Anfragen. Wir danken Ihnen für das entgegengebrachte Vertrauen. Bei DT Spare Parts zahlt sich Loyalität wirklich aus: Beim Kauf von Produkten der Marke DT Spare Parts können Sie dank des Premium Shops viele hochwertige Prämien bestellen. Jetzt anmelden und Kronen sammeln unter https://premiumshop.dt-spareparts.com/ Wenn Sie bei der Anmeldung unseren Newsletter abonnieren, erhalten Sie sofort 750 Kronen und verpassen keine Neuigkeiten und Aktionen rund um Produkte der Marke DT Spare Parts. Wir wünschen uns eine erfolgreiche Zusammenarbeit mit unserem Vertriebspartner und stehen Ihnen bei Fragen gerne zur Verfügung. Mit freundlichen Grüßen,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+    </values>
+    <values>
+        <field>IsDefault__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>FeedbackLabelBuyDT__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+    <values>
+        <field>FeedbackLabelOtherBrand__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+    <values>
+        <field>FeedbackLabelDidNotBuy__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+</CustomMetadata>

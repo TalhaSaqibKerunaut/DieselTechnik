@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Initial PTBR</label>
+    <protected>false</protected>
+    <values>
+        <field>LanguageCode__c</field>
+        <value xsi:type="xsd:string">PTBR</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Initial</value>
+    </values>
+    <values>
+        <field>Subject__c</field>
+        <value xsi:type="xsd:string">Sua solicitação em www.dieseltechnic.com; www.dt-spareparts.com</value>
+    </values>
+    <values>
+        <field>BodyHtml__c</field>
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Muito obrigado por sua solicitação e seu interesse no Diesel Technic Group e nos produtos da marca DT Spare Parts. Após uma verificação interna de sua solicitação, gostaríamos de lhe fornecer um contato direto com nossos parceiros de distribuição regionais:&lt;/p&gt;
+{AccountInfo}
+{Comment}
+&lt;p&gt;O parceiro de distribuição lhe fornecerá mais informações sobre o produto e aguardará suas consultas. Agradecemos a sua confiança em nós. Na DT Spare Parts, a fidelidade realmente vale a pena: Com a compra de produtos da marca DT Spare Parts, você pode solicitar muitos prêmios de alta qualidade graças ao Premium Shop. Registre-se agora e receba coroas em https://premiumshop.dt-spareparts.com/ Se, no momento do registro, você assinar a nossa newsletter, receberá imediatamente 750 coroas e não perderá nenhuma notícia e promoção sobre os produtos da marca DT Spare Parts. Desejamos uma cooperação bem-sucedida com nosso parceiro de distribuição e o ajudaremos caso tenha alguma dúvida. Atenciosamente,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+    </values>
+    <values>
+        <field>IsDefault__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>FeedbackLabelBuyDT__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+    <values>
+        <field>FeedbackLabelOtherBrand__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+    <values>
+        <field>FeedbackLabelDidNotBuy__c</field>
+        <value xsi:type="xsd:string"></value>
+    </values>
+</CustomMetadata>

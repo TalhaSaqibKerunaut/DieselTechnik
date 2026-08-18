@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Reminder DE</label>
+    <protected>false</protected>
+    <values>
+        <field>LanguageCode__c</field>
+        <value xsi:type="xsd:string">DE</value>
+    </values>
+    <values>
+        <field>Type__c</field>
+        <value xsi:type="xsd:string">Reminder</value>
+    </values>
+    <values>
+        <field>Subject__c</field>
+        <value xsi:type="xsd:string">Ihre Anfrage an www.dieseltechnic.com; www.dt-spareparts.com</value>
+    </values>
+    <values>
+        <field>BodyHtml__c</field>
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, nochmals vielen Dank für Ihr Interesse an der Diesel Technic Group und unseren Produkten der Marke DT Spare Parts. Nach einer internen Prüfung haben wir Ihnen vor zwei Wochen einen direkten Kontakt zu unseren Vertriebspartnern vermittelt. Wir möchten gerne nachfassen, ob Sie Ihre Bedürfnisse befriedigen konnten. Daher möchten wir Sie um Ihr Feedback bitten. Bitte teilen Sie uns folgendes mit:&lt;/p&gt;
+{AccountInfo}
+&lt;p&gt;Wenn Sie weitere Fragen haben, lassen Sie es uns bitte wissen. Mit freundlichen Grüßen,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+    </values>
+    <values>
+        <field>IsDefault__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>FeedbackLabelBuyDT__c</field>
+        <value xsi:type="xsd:string">Ich habe DT-Ersatzteile in einem anderen Geschäft gekauft</value>
+    </values>
+    <values>
+        <field>FeedbackLabelOtherBrand__c</field>
+        <value xsi:type="xsd:string">Ich habe eine andere Marke gekauft</value>
+    </values>
+    <values>
+        <field>FeedbackLabelDidNotBuy__c</field>
+        <value xsi:type="xsd:string">Ich habe überhaupt nicht gekauft</value>
+    </values>
+</CustomMetadata>
