@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>Brazil</label>
+    <protected>false</protected>
+    <values>
+        <field>CountryCode__c</field>
+        <value xsi:type="xsd:string">BR</value>
+    </values>
+    <values>
+        <field>AccountFilterCountryCode__c</field>
+        <value xsi:type="xsd:string">BR</value>
+    </values>
+    <values>
+        <field>RequiresStateFilter__c</field>
+        <value xsi:type="xsd:boolean">true</value>
+    </values>
+    <values>
+        <field>StateFilterFieldApiName__c</field>
+        <value xsi:type="xsd:string">KS_ApplicableStatesBrazil1__c</value>
+    </values>
+    <values>
+        <field>UseCommonFlag__c</field>
+        <value xsi:type="xsd:boolean">false</value>
+    </values>
+    <values>
+        <field>OWEDisplayName__c</field>
+        <value xsi:nil="true"/>
+    </values>
+</CustomMetadata>
