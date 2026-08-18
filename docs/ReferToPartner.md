@@ -198,17 +198,18 @@ Applied consistently in both Initial and Reminder emails.
 
 | Phase | Item | Status |
 |---|---|---|
-| 0 | `KS_ReferToPartnerSettings__c` Custom Setting | ✅ Done |
-| 0 | `KS_ReferPartnerContent__mdt` object + fields | 🔄 In progress |
-| 0 | `KS_ReferPartnerFlowConfig__mdt` records (5) | ⬜ Pending |
-| 0 | Content records (16) | ⬜ Pending |
-| 0 | Custom Labels (2) + shell email templates (2) | ⬜ Pending |
-| 1 | `KS_ReferToPartnerEmailService` | ⬜ Pending |
-| 1 | `KS_ReferToPartnerController` | ⬜ Pending |
-| 1 | `KS_ReferToPartnerReminderV2` | ⬜ Pending |
-| 1 | Test classes | ⬜ Pending |
-| 2 | `ks_referToPartner` LWC | ⬜ Pending |
-| 2 | `Lead.KS_Refer_To_Partner_V2` Quick Action | ⬜ Pending |
+| 0 | `KS_ReferToPartnerSettings__c` Custom Setting | ✅ Done (commit 63438c0) |
+| 0 | `KS_ReferPartnerContent__mdt` object + fields | ✅ Done (commit 63438c0) |
+| 0 | `KS_ReferPartnerFlowConfig__mdt` records (5) | ✅ Done (commit 5e24061) |
+| 0 | Content records (16) | ✅ Done (commit c0e9a9a) |
+| 0 | Custom Labels (2) + shell email templates (2) | ✅ Done (commit 57ab7dd) |
+| 1 | `KS_ReferToPartnerEmailService` | ✅ Done (commit 53eeb6a) |
+| 1 | `KS_ReferToPartnerController` | ✅ Done (commit 53eeb6a) |
+| 1 | `KS_ReferToPartnerReminderV2` | ✅ Done (commit 53eeb6a) |
+| 1 | Test classes (EmailService + Controller) | ✅ Done (commit 53eeb6a) |
+| 2 | `ks_referToPartner` LWC | ✅ Done (commit 9653b8e) |
+| 2 | `Lead.KS_Refer_To_Partner_V2` Quick Action | ✅ Done (commit 9653b8e) |
+| 3 | Deploy to DT_Dev + manual E2E test | ⬜ Pending |
 | 3 | Cutover (UAT sign-off required) | ⬜ Pending |
 
 ---
