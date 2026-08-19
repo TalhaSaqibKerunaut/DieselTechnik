@@ -1,11 +1,21 @@
 /* ks_referToPartner.css */
 
+/* Page title bar */
+.rtp-page-header {
+    border-bottom: 2px solid #0070d2;
+    padding-bottom: 0.5rem;
+}
+
+.rtp-page-header h1 {
+    color: #16325c;
+    font-weight: 700;
+}
+
 /* Section card container matching original UI */
 .rtp-section {
     border: 1px solid #dddbda;
     border-radius: 4px;
     background-color: #ffffff;
-    overflow: hidden;
 }
 
 .rtp-section__header {
@@ -24,13 +34,18 @@
     background: none;
     border: none;
     cursor: pointer;
-    text-align: left;
     font-size: inherit;
     font-family: inherit;
 }
 
 .rtp-section__header--toggle:hover {
     background-color: #e8e7e6;
+}
+
+/* Groups chevron icon + section title so both stay left-aligned */
+.rtp-toggle__left {
+    display: flex;
+    align-items: center;
 }
 
 .rtp-section__title {
@@ -48,6 +63,12 @@
 
 .rtp-section__body {
     padding-bottom: 0.25rem;
+}
+
+/* Scroll container for long account lists — shows ~8 rows before scrolling */
+.rtp-table-scroll {
+    max-height: 300px;
+    overflow-y: auto;
 }
 
 /* Footer */
