@@ -137,12 +137,15 @@ public with sharing class KS_ReferToPartnerController {
         }
         insert relations;
 
-        // Update lead with referred account IDs and date
+        // Update lead fields — mirrors what the V1 flow does
         String referredIdsCsv = String.join(new List<Id>(accountIds), ',');
         update new Lead(
-            Id                         = leadId,
-            KS_Referred_Account_Ids__c = referredIdsCsv,
-            KS_Referred_Date__c        = Date.today()
+            Id                              = leadId,
+            KS_Referred_Account_Ids__c      = referredIdsCsv,
+            KS_Referred_Date__c             = Date.today(),
+            KS_Comments__c                  = String.isNotBlank(comments) ? comments : null,
+            KS_is_Feedback_Submitted__c     = false,
+            KS_Refer_To_Partner_Feedback__c = null
         );
 
         // Send initial email

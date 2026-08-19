@@ -127,11 +127,15 @@ private class KS_ReferToPartnerController_Test {
 
         // Verify lead was updated
         Lead updated = [
-            SELECT KS_Referred_Account_Ids__c, KS_Referred_Date__c
+            SELECT KS_Referred_Account_Ids__c, KS_Referred_Date__c,
+                   KS_Comments__c, KS_is_Feedback_Submitted__c, KS_Refer_To_Partner_Feedback__c
             FROM Lead WHERE Id = :lead.Id
         ];
         System.assertNotEquals(null, updated.KS_Referred_Account_Ids__c);
         System.assertEquals(Date.today(), updated.KS_Referred_Date__c);
+        System.assertEquals('Test comment', updated.KS_Comments__c, 'Comments should be written to lead');
+        System.assertEquals(false, updated.KS_is_Feedback_Submitted__c, 'Feedback submitted flag should be reset');
+        System.assertEquals(null, updated.KS_Refer_To_Partner_Feedback__c, 'Previous feedback should be cleared');
     }
 
     @IsTest
