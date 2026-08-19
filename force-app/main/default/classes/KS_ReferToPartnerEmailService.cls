@@ -37,7 +37,9 @@ public with sharing class KS_ReferToPartnerEmailService {
             '{Salutation}'    => safeStr(lead.KS_EmailSalutation__c),
             '{LeadName}'      => safeStr(lead.FirstName) + ' ' + safeStr(lead.LastName),
             '{AccountInfo}'   => accountInfoHtml,
-            '{Comment}'       => safeStr(comments),
+            '{Comment}'       => String.isNotBlank(comments)
+                                    ? '<p>' + escHtml(comments).replace('\n', '<br />') + '</p>'
+                                    : '',
             '{LeadOwnerName}' => safeStr(lead.Owner.Name),
             '{FeedbackButtons}' => ''
         };

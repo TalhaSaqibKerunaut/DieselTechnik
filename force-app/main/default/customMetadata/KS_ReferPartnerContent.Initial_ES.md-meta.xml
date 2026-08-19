@@ -18,9 +18,11 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Muchas gracias por su solicitud y su interés en Diesel Technic Group y en los productos de la marca DT Spare Parts. Tras una comprobación interna de su solicitud, nos gustaría facilitarle un contacto directo con nuestros socios de distribución regionales:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;Muchas gracias por su solicitud y su interés en Diesel Technic Group y en los productos de la marca DT Spare Parts.&lt;br /&gt;&lt;br /&gt; Tras una comprobación interna de su solicitud, nos gustaría facilitarle un contacto directo con nuestros socios de distribución regionales:&lt;/p&gt;
 {AccountInfo}
 {Comment}
+&lt;p&gt;El socio distribuidor le proporcionará más información sobre el producto y espera sus consultas. Le agradecemos la confianza depositada en nosotros.&lt;br /&gt;&lt;br /&gt; En DT Spare Parts, la fidelidad merece la pena: Con la compra de productos de la marca DT Spare Parts, podrá solicitar numerosas recompensas de alta calidad gracias a la Tienda Premium.&lt;br /&gt; Regístrese ahora y consiga coronas en https://premiumshop.dt-spareparts.com/ &amp;nbsp;&lt;br /&gt;&lt;br /&gt; Si al registrarse se suscribe a nuestro boletín de noticias, recibirá inmediatamente 750 coronas y no se perderá ninguna novedad y promoción sobre los productos de la marca DT Spare Parts.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Le deseamos una fructífera colaboración con nuestro socio distribuidor y le ayudaremos en caso de cualquier duda.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Reciba un cordial saludo,&lt;/p&gt;
 &lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>

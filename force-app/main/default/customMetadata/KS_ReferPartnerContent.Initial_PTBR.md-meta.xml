@@ -18,10 +18,12 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Muito obrigado por sua solicitação e seu interesse no Diesel Technic Group e nos produtos da marca DT Spare Parts. Após uma verificação interna de sua solicitação, gostaríamos de lhe fornecer um contato direto com nossos parceiros de distribuição regionais:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;Muito obrigado por sua solicitação e seu interesse no Diesel Technic Group e nos produtos da marca DT Spare Parts.&lt;br /&gt;&lt;br /&gt; Após uma verificação interna de sua solicitação, gostaríamos de lhe fornecer um contato direto com nossos parceiros de distribuição regionais:&lt;/p&gt;
 {AccountInfo}
 {Comment}
-&lt;p&gt;O parceiro de distribuição lhe fornecerá mais informações sobre o produto e aguardará suas consultas. Agradecemos a sua confiança em nós. Na DT Spare Parts, a fidelidade realmente vale a pena: Com a compra de produtos da marca DT Spare Parts, você pode solicitar muitos prêmios de alta qualidade graças ao Premium Shop. Registre-se agora e receba coroas em https://premiumshop.dt-spareparts.com/ Se, no momento do registro, você assinar a nossa newsletter, receberá imediatamente 750 coroas e não perderá nenhuma notícia e promoção sobre os produtos da marca DT Spare Parts. Desejamos uma cooperação bem-sucedida com nosso parceiro de distribuição e o ajudaremos caso tenha alguma dúvida. Atenciosamente,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+&lt;p&gt;O parceiro de distribuição lhe fornecerá mais informações sobre o produto e aguardará suas consultas. Agradecemos a sua confiança em nós.&lt;br /&gt;&lt;br /&gt; Na DT Spare Parts, a fidelidade realmente vale a pena: Com a compra de produtos da marca DT Spare Parts, você pode solicitar muitos prêmios de alta qualidade graças ao Premium Shop.&lt;br /&gt; Registre-se agora e receba coroas em https://premiumshop.dt-spareparts.com/ &amp;nbsp;&lt;br /&gt;&lt;br /&gt; Se, no momento do registro, você assinar a nossa newsletter, receberá imediatamente 750 coroas e não perderá nenhuma notícia e promoção sobre os produtos da marca DT Spare Parts.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Desejamos uma cooperação bem-sucedida com nosso parceiro de distribuição e o ajudaremos caso tenha alguma dúvida.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Atenciosamente,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>

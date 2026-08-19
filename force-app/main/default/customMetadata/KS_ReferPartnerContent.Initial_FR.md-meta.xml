@@ -18,9 +18,11 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Nous vous remercions de votre demande et de l'intérêt que vous portez au groupe Diesel Technic et aux produits de la marque DT Spare Parts. Après une vérification interne de votre demande, nous aimerions vous fournir un contact direct avec nos partenaires de distribution régionaux :&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;Nous vous remercions de votre demande et de l&#x27;intérêt que vous portez au groupe Diesel Technic et aux produits de la marque DT Spare Parts.&lt;br /&gt;&lt;br /&gt; Après une vérification interne de votre demande, nous aimerions vous fournir un contact direct avec nos partenaires de distribution régionaux :&amp;nbsp;&lt;/p&gt;
 {AccountInfo}
 {Comment}
+&lt;p&gt;Le partenaire de distribution vous fournira d&#x27;autres informations sur les produits et se réjouit de vos demandes. Nous vous remercions de la confiance que vous nous témoignez.&lt;br /&gt;&lt;br /&gt; Chez DT Spare Parts, la fidélité est vraiment payante : En achetant des produits de la marque DT Spare Parts, vous pouvez commander de nombreuses récompenses de haute qualité grâce à la boutique Premium.&lt;br /&gt; Inscrivez-vous maintenant et gagnez des couronnes sur https://premiumshop.dt-spareparts.com/ &amp;nbsp;&lt;br /&gt;&lt;br /&gt; Si vous vous inscrivez à notre newsletter lors de votre inscription, vous recevrez immédiatement 750 couronnes et ne manquerez aucune nouvelle ou promotion sur les produits de la marque DT Spare Parts.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Nous souhaitons une coopération fructueuse avec notre partenaire de distribution et nous vous aiderons si vous avez des questions.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Nous vous prions d&#x27;agréer, Madame, Monsieur, l&#x27;expression de nos&lt;br /&gt;&lt;br /&gt; salutations distinguées,&lt;/p&gt;
 &lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>

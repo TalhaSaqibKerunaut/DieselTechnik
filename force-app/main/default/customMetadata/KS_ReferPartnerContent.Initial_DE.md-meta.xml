@@ -18,10 +18,12 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, vielen Dank für Ihre Anfrage und Ihr Interesse an der Diesel Technic Group und den Produkten der Marke DT Spare Parts. Nach interner Prüfung Ihrer Anfrage möchten wir Ihnen gerne einen direkten Kontakt zu unseren regionalen Vertriebspartnern vermitteln:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;vielen Dank für Ihre Anfrage und Ihr Interesse an der Diesel Technic Group und den Produkten der Marke DT Spare Parts. Nach interner Prüfung Ihrer Anfrage möchten wir Ihnen gerne einen direkten Kontakt zu unseren regionalen Vertriebspartnern vermitteln:&lt;/p&gt;
 {AccountInfo}
 {Comment}
-&lt;p&gt;Der Vertriebspartner stellt Ihnen gerne weitere Produktinformationen zur Verfügung und freut sich auf Ihre Anfragen. Wir danken Ihnen für das entgegengebrachte Vertrauen. Bei DT Spare Parts zahlt sich Loyalität wirklich aus: Beim Kauf von Produkten der Marke DT Spare Parts können Sie dank des Premium Shops viele hochwertige Prämien bestellen. Jetzt anmelden und Kronen sammeln unter https://premiumshop.dt-spareparts.com/ Wenn Sie bei der Anmeldung unseren Newsletter abonnieren, erhalten Sie sofort 750 Kronen und verpassen keine Neuigkeiten und Aktionen rund um Produkte der Marke DT Spare Parts. Wir wünschen uns eine erfolgreiche Zusammenarbeit mit unserem Vertriebspartner und stehen Ihnen bei Fragen gerne zur Verfügung. Mit freundlichen Grüßen,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+&lt;p&gt;Der Vertriebspartner stellt Ihnen gerne weitere Produktinformationen zur Verfügung und freut sich auf Ihre Anfragen. Wir danken Ihnen für das entgegengebrachte Vertrauen.&lt;br /&gt;&lt;br /&gt; Bei DT Spare Parts zahlt sich Loyalität wirklich aus: Beim Kauf von Produkten der Marke DT Spare Parts können Sie dank des Premium Shops viele hochwertige Prämien bestellen.&lt;br /&gt; Jetzt anmelden und Kronen sammeln unter https://premiumshop.dt-spareparts.com/ &amp;nbsp;&lt;br /&gt;&lt;br /&gt; Wenn Sie bei der Anmeldung unseren Newsletter abonnieren, erhalten Sie sofort 750 Kronen und verpassen keine Neuigkeiten und Aktionen rund um Produkte der Marke DT Spare Parts.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Wir wünschen uns eine erfolgreiche Zusammenarbeit mit unserem Vertriebspartner und stehen Ihnen bei Fragen gerne zur Verfügung.&amp;nbsp;&lt;br /&gt;&lt;br /&gt; Mit freundlichen Grüßen,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>

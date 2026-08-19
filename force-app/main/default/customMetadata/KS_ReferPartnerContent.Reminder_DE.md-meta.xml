@@ -18,9 +18,12 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, nochmals vielen Dank für Ihr Interesse an der Diesel Technic Group und unseren Produkten der Marke DT Spare Parts. Nach einer internen Prüfung haben wir Ihnen vor zwei Wochen einen direkten Kontakt zu unseren Vertriebspartnern vermittelt. Wir möchten gerne nachfassen, ob Sie Ihre Bedürfnisse befriedigen konnten. Daher möchten wir Sie um Ihr Feedback bitten. Bitte teilen Sie uns folgendes mit:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;nochmals vielen Dank für Ihr Interesse an der Diesel Technic Group und unseren Produkten der Marke DT Spare Parts. Nach einer internen Prüfung haben wir Ihnen vor zwei Wochen einen direkten Kontakt zu unseren Vertriebspartnern vermittelt. Wir möchten gerne nachfassen, ob Sie Ihre Bedürfnisse befriedigen konnten. Daher möchten wir Sie um Ihr Feedback bitten. Bitte teilen Sie uns folgendes mit:&lt;/p&gt;
 {AccountInfo}
-&lt;p&gt;Wenn Sie weitere Fragen haben, lassen Sie es uns bitte wissen. Mit freundlichen Grüßen,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+{FeedbackButtons}
+&lt;p&gt;Wenn Sie weitere Fragen haben, lassen Sie es uns bitte wissen. Mit freundlichen Grüßen,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>

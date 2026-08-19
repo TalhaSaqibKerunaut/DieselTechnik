@@ -27,6 +27,8 @@ export default class Ks_referToPartner extends LightningElement {
     @track isLoading = true;
     @track errorMessage = null;
     @track isSubmitting = false;
+    @track searchTermPreferred = '';
+    @track searchTermOther = '';
 
     columns = COLUMNS;
 
@@ -74,6 +76,54 @@ export default class Ks_referToPartner extends LightningElement {
         return this.isSubmitting || !this.hasSelections;
     }
 
+    get filteredPreferredAccounts() {
+        if (!this.searchTermPreferred) return this.preferredAccounts;
+        const term = this.searchTermPreferred.toLowerCase();
+        return (this.preferredAccounts || []).filter(a =>
+            (a.name || '').toLowerCase().includes(term) ||
+            (a.city || '').toLowerCase().includes(term) ||
+            (a.country || '').toLowerCase().includes(term)
+        );
+    }
+
+    get filteredOtherAccounts() {
+        if (!this.searchTermOther) return this.otherAccounts;
+        const term = this.searchTermOther.toLowerCase();
+        return (this.otherAccounts || []).filter(a =>
+            (a.name || '').toLowerCase().includes(term) ||
+            (a.city || '').toLowerCase().includes(term) ||
+            (a.country || '').toLowerCase().includes(term)
+        );
+    }
+
+    get preferredSelectedCount() {
+        if (!this.selectedIds || !this.preferredAccounts) return 0;
+        const prefIds = new Set(this.preferredAccounts.map(a => a.id));
+        return this.selectedIds.filter(id => prefIds.has(id)).length;
+    }
+
+    get otherSelectedCount() {
+        if (!this.selectedIds || !this.otherAccounts) return 0;
+        const otherIds = new Set(this.otherAccounts.map(a => a.id));
+        return this.selectedIds.filter(id => otherIds.has(id)).length;
+    }
+
+    get preferredItemsLabel() {
+        const total = (this.preferredAccounts || []).length;
+        const filtered = (this.filteredPreferredAccounts || []).length;
+        const selected = this.preferredSelectedCount;
+        const itemsStr = this.searchTermPreferred ? `${filtered} of ${total} items` : `${total} items`;
+        return `${itemsStr} \u2022 ${selected} item${selected !== 1 ? 's' : ''} selected`;
+    }
+
+    get otherItemsLabel() {
+        const total = (this.otherAccounts || []).length;
+        const filtered = (this.filteredOtherAccounts || []).length;
+        const selected = this.otherSelectedCount;
+        const itemsStr = this.searchTermOther ? `${filtered} of ${total} items` : `${total} items`;
+        return `${itemsStr} \u2022 ${selected} item${selected !== 1 ? 's' : ''} selected`;
+    }
+
     // ─── Handlers ────────────────────────────────────────────────────────────
 
     handleRowSelection(event) {
@@ -94,6 +144,14 @@ export default class Ks_referToPartner extends LightningElement {
 
     toggleOtherAccounts() {
         this.showOtherAccounts = !this.showOtherAccounts;
+    }
+
+    handlePreferredSearch(event) {
+        this.searchTermPreferred = event.detail.value;
+    }
+
+    handleOtherSearch(event) {
+        this.searchTermOther = event.detail.value;
     }
 
     handleCancel() {

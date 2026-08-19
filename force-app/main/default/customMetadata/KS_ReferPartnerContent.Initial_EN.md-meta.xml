@@ -18,10 +18,18 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Thank you very much for your request and your interest in the Diesel Technic Group and the products of the brand DT Spare Parts. After an internal check of your request, we would like to provide you with a direct contact to our regional distribution partners:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;Thank you very much for your request and your interest in the Diesel Technic Group and the products of the brand DT Spare Parts.&lt;/p&gt;
+&lt;p&gt;After an internal check of your request, we would like to provide you with a direct contact to our regional distribution partners:&lt;/p&gt;
 {AccountInfo}
 {Comment}
-&lt;p&gt;The distribution partner will provide you with further product information and looks forward to your inquiries. We thank you for the confidence shown to us. At DT Spare Parts, loyalty really pays off: With the purchase of products of the brand DT Spare Parts, you can order many high-quality rewards thanks to the Premium Shop. Register now and collect crowns at https://premiumshop.dt-spareparts.com/ If you subscribe to our newsletter “Specialists info” when registering, you will immediately receive 750 crowns and will not miss any news and promotions about DT Spare Parts brand products. We wish you a successful cooperation with our distribution partner and will assist you if you have any queries. Yours sincerely,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+&lt;p&gt;The distribution partner will provide you with further product information and looks forward to your inquiries. We thank you for the confidence shown to us.&lt;/p&gt;
+&lt;p&gt;At DT Spare Parts, loyalty really pays off: With the purchase of products of the brand DT Spare Parts, you can order many high-quality rewards thanks to the Premium Shop.&lt;/p&gt;
+&lt;p&gt;Register now and collect crowns at https://premiumshop.dt-spareparts.com/&lt;/p&gt;
+&lt;p&gt;If you subscribe to our newsletter “Specialists info” when registering, you will immediately receive 750 crowns and will not miss any news and promotions about DT Spare Parts brand products.&lt;/p&gt;
+&lt;p&gt;We wish you a successful cooperation with our distribution partner and will assist you if you have any queries.&lt;/p&gt;
+&lt;p&gt;Yours sincerely,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>

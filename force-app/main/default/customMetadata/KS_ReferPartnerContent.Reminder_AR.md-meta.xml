@@ -18,9 +18,12 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, نشكرك مرة أخرى على اهتمامك بمجموعة Diesel Technic Group ومنتجاتنا التي تحمل العلامة التجارية DT Spare Parts. بعد إجراء فحص داخلي، قمنا بتزويدك باتصال مباشر مع شركاء التوزيع لدينا منذ أسبوعين. نود المتابعة إذا كنت قادرًا على تلبية احتياجاتك. ولذلك، نود أن نطلب ملاحظاتك. يرجى إعلامنا بما يلي:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;نشكرك مرة أخرى على اهتمامك بمجموعة Diesel Technic Group ومنتجاتنا التي تحمل العلامة التجارية DT Spare Parts. بعد إجراء فحص داخلي، قمنا بتزويدك باتصال مباشر مع شركاء التوزيع لدينا منذ أسبوعين. نود المتابعة إذا كنت قادرًا على تلبية احتياجاتك. ولذلك، نود أن نطلب ملاحظاتك. يرجى إعلامنا بما يلي:&lt;/p&gt;
 {AccountInfo}
-&lt;p&gt;إذا كان لديك المزيد من الأسئلة، يرجى إعلامنا بذلك. تفضلوا بقبول فائق الاحترام،,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+{FeedbackButtons}
+&lt;p&gt;إذا كان لديك المزيد من الأسئلة، يرجى إعلامنا بذلك. تفضلوا بقبول فائق الاحترام،,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>

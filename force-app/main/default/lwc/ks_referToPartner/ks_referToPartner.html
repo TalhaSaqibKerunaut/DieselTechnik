@@ -21,40 +21,68 @@
     <template lwc:else>
         <div class="slds-p-around_medium">
 
-            <!-- Regional / Preferred Partners -->
-            <h2 class="slds-text-heading_small slds-m-bottom_x-small">
-                Regional Partners
-            </h2>
-            <template lwc:if={hasPreferredAccounts}>
-                <lightning-datatable
-                    key-field="id"
-                    data={preferredAccounts}
-                    columns={columns}
-                    selected-rows={selectedIds}
-                    onrowselection={handleRowSelection}
-                ></lightning-datatable>
-            </template>
-            <template lwc:else>
-                <p class="slds-text-color_weak slds-m-bottom_small">No regional partners found for this lead&apos;s country.</p>
-            </template>
-
-            <!-- Other Partners (collapsible) -->
-            <template lwc:if={hasOtherAccounts}>
-                <div class="slds-m-top_medium">
-                    <button class="slds-button slds-button_neutral slds-m-bottom_x-small"
-                        onclick={toggleOtherAccounts}>
-                        <lightning-icon icon-name={otherSectionIcon} size="x-small"
-                            class="slds-m-right_xx-small"></lightning-icon>
-                        Other Partners ({otherAccountsCount})
-                    </button>
-                    <template lwc:if={showOtherAccounts}>
+            <!-- Regional / Preferred Partners Section -->
+            <div class="rtp-section slds-m-bottom_medium">
+                <div class="rtp-section__header">
+                    <span class="slds-text-heading_small rtp-section__title">Preferred Refer To Partner</span>
+                    <span class="rtp-section__count">{preferredItemsLabel}</span>
+                </div>
+                <div class="rtp-section__body">
+                    <template lwc:if={hasPreferredAccounts}>
+                        <div class="slds-p-horizontal_small slds-p-top_x-small">
+                            <lightning-input
+                                type="search"
+                                placeholder="Search..."
+                                value={searchTermPreferred}
+                                onchange={handlePreferredSearch}
+                                variant="label-hidden"
+                                label="Search Regional Partners"
+                            ></lightning-input>
+                        </div>
                         <lightning-datatable
                             key-field="id"
-                            data={otherAccounts}
+                            data={filteredPreferredAccounts}
                             columns={columns}
                             selected-rows={selectedIds}
                             onrowselection={handleRowSelection}
                         ></lightning-datatable>
+                    </template>
+                    <template lwc:else>
+                        <p class="slds-text-color_weak slds-p-around_small">No regional partners found for this lead&apos;s country.</p>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Other Partners (collapsible) -->
+            <template lwc:if={hasOtherAccounts}>
+                <div class="rtp-section slds-m-bottom_medium">
+                    <button class="rtp-section__header rtp-section__header--toggle"
+                        onclick={toggleOtherAccounts}>
+                        <lightning-icon icon-name={otherSectionIcon} size="x-small"
+                            class="slds-m-right_x-small"></lightning-icon>
+                        <span class="slds-text-heading_small rtp-section__title">All Accounts</span>
+                        <span class="rtp-section__count">{otherItemsLabel}</span>
+                    </button>
+                    <template lwc:if={showOtherAccounts}>
+                        <div class="rtp-section__body">
+                            <div class="slds-p-horizontal_small slds-p-top_x-small">
+                                <lightning-input
+                                    type="search"
+                                    placeholder="Search..."
+                                    value={searchTermOther}
+                                    onchange={handleOtherSearch}
+                                    variant="label-hidden"
+                                    label="Search All Accounts"
+                                ></lightning-input>
+                            </div>
+                            <lightning-datatable
+                                key-field="id"
+                                data={filteredOtherAccounts}
+                                columns={columns}
+                                selected-rows={selectedIds}
+                                onrowselection={handleRowSelection}
+                            ></lightning-datatable>
+                        </div>
                     </template>
                 </div>
             </template>

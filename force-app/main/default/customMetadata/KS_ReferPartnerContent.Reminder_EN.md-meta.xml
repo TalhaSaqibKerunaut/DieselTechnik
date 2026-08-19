@@ -18,9 +18,12 @@
     </values>
     <values>
         <field>BodyHtml__c</field>
-        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName}, Thank you again for your interest in the Diesel Technic Group and our products of the brand DT Spare Parts. After an internal check we provided you a direct contact to our distribution partners two weeks ago. We would like to follow up if you were able to satisfy your needs. Therefore, we would like to ask for your feedback. Please let us know the following:&lt;/p&gt;
+        <value xsi:type="xsd:string">&lt;p&gt;{Salutation} {LeadName},&lt;/p&gt;
+&lt;p&gt;Thank you again for your interest in the Diesel Technic Group and our products of the brand DT Spare Parts. After an internal check we provided you a direct contact to our distribution partners two weeks ago. We would like to follow up if you were able to satisfy your needs. Therefore, we would like to ask for your feedback. Please let us know the following:&lt;/p&gt;
 {AccountInfo}
-&lt;p&gt;If you have further questions, please let us know. Yours sincerely,&lt;br/&gt;{LeadOwnerName}&lt;/p&gt;</value>
+{FeedbackButtons}
+&lt;p&gt;If you have further questions, please let us know. Yours sincerely,&lt;/p&gt;
+&lt;p&gt;{LeadOwnerName}&lt;/p&gt;</value>
     </values>
     <values>
         <field>IsDefault__c</field>
