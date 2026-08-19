@@ -26,6 +26,6 @@
     </values>
     <values>
         <field>OWEDisplayName__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">DT</value>
     </values>
 </CustomMetadata>

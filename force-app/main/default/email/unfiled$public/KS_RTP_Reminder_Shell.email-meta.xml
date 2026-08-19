@@ -6,6 +6,6 @@
     <style>none</style>
     <subject>Refer To Partner Reminder</subject>
     <textOnly>Shell template for Refer To Partner reminder email. HTML body contains {EmailContent} placeholder replaced at runtime by KS_ReferToPartnerEmailService.</textOnly>
-    <type>html</type>
+    <type>custom</type>
     <uiType>SFX</uiType>
 </EmailTemplate>

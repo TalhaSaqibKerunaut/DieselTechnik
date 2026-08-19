@@ -4,7 +4,7 @@
     <description>Reminder only. Label for the feedback link: lead did not buy at all.</description>
     <externalId>false</externalId>
     <label>Feedback Label: Did Not Buy</label>
-    <length>500</length>
+    <length>255</length>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

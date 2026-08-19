@@ -5,7 +5,7 @@
         <categories>ReferToPartner</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>DeveloperName of the Initial shell email template used by KS_ReferToPartnerEmailService</shortDescription>
+        <shortDescription>Initial shell EmailTemplate DeveloperName for RTP V2</shortDescription>
         <value>KS_RTP_Initial_Shell</value>
     </labels>
     <labels>
@@ -13,7 +13,7 @@
         <categories>ReferToPartner</categories>
         <language>en_US</language>
         <protected>false</protected>
-        <shortDescription>DeveloperName of the Reminder shell email template used by KS_ReferToPartnerEmailService</shortDescription>
+        <shortDescription>Reminder shell EmailTemplate DeveloperName for RTP V2</shortDescription>
         <value>KS_RTP_Reminder_Shell</value>
     </labels>
 </CustomLabels>

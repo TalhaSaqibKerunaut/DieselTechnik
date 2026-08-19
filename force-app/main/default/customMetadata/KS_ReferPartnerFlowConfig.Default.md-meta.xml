@@ -7,11 +7,11 @@
     <values>
         <!-- Fallback record used when no country-specific config exists -->
         <field>CountryCode__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">DEFAULT</value>
     </values>
     <values>
         <field>AccountFilterCountryCode__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">DEFAULT</value>
     </values>
     <values>
         <field>RequiresStateFilter__c</field>
@@ -27,6 +27,6 @@
     </values>
     <values>
         <field>OWEDisplayName__c</field>
-        <value xsi:nil="true"/>
+        <value xsi:type="xsd:string">DT</value>
     </values>
 </CustomMetadata>

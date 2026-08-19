@@ -63,7 +63,7 @@ public with sharing class KS_ReferToPartnerController {
             throw new AuraHandledException('This lead has opted out of email communications.');
         }
 
-        String leadCountry = lead.Country;
+        String leadCountry = lead.CountryCode;
         KS_ReferPartnerFlowConfig__mdt config = loadFlowConfig(leadCountry);
 
         // Build and execute the primary (preferred) account query
@@ -96,11 +96,10 @@ public with sharing class KS_ReferToPartnerController {
                 SELECT Id, Name, BillingCity, BillingCountry, KS_Email__c, Phone,
                        Website, KS_PartnerShopUrl__c
                 FROM Account
-                WHERE KS_ReferToPartner__c = true
-                  AND BillingCountry != :leadCountry
-                  AND BillingCountry != 'BR'
-                  AND BillingCountry != 'Brazil'
-                WITH SECURITY_ENFORCED
+                WHERE KS_QualifiedRefertoPartner__c = true
+                  AND BillingCountryCode != :leadCountry
+                  AND BillingCountryCode != 'BR'
+                WITH USER_MODE
                 ORDER BY Name
                 LIMIT 200
             ];
@@ -131,9 +130,9 @@ public with sharing class KS_ReferToPartnerController {
         List<KS_BusinessRelation__c> relations = new List<KS_BusinessRelation__c>();
         for (Id accId : accountIds) {
             relations.add(new KS_BusinessRelation__c(
-                KS_Lead__c    = leadId,
-                KS_Account__c = accId,
-                KS_Status__c  = 'Referred'
+                KS_Lead__c             = leadId,
+                KS_TargetAccount__c     = accId,
+                KS_RelationshipType__c  = 'is Customer from'
             ));
         }
         insert relations;
@@ -154,11 +153,11 @@ public with sharing class KS_ReferToPartnerController {
 
     private static Lead queryLead(Id leadId) {
         List<Lead> leads = [
-            SELECT Id, Email, Country, State, HasOptedOutOfEmail,
+            SELECT Id, Email, CountryCode, StateCode, HasOptedOutOfEmail,
                    KS_Referred_Account_Ids__c, KS_Language__c, KS_Client__c
             FROM Lead
             WHERE Id = :leadId
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             LIMIT 1
         ];
         if (leads.isEmpty()) {
@@ -172,38 +171,37 @@ public with sharing class KS_ReferToPartnerController {
             SELECT CountryCode__c, UseCommonFlag__c,
                    RequiresStateFilter__c, StateFilterFieldApiName__c
             FROM KS_ReferPartnerFlowConfig__mdt
-            WHERE CountryCode__c = :countryCode
-               OR CountryCode__c = null
-            ORDER BY CountryCode__c NULLS LAST
-            LIMIT 2
         ];
 
-        if (configs.isEmpty()) {
-            // Return a safe default if no records exist
-            return new KS_ReferPartnerFlowConfig__mdt(
-                CountryCode__c = null,
-                UseCommonFlag__c = false,
-                RequiresStateFilter__c = false,
-                StateFilterFieldApiName__c = null
-            );
-        }
-
-        // Prefer exact country match over the null/default record
+        KS_ReferPartnerFlowConfig__mdt fallback = null;
         for (KS_ReferPartnerFlowConfig__mdt cfg : configs) {
             if (cfg.CountryCode__c == countryCode) {
                 return cfg;
             }
+            if (cfg.CountryCode__c == 'DEFAULT') {
+                fallback = cfg;
+            }
         }
-        return configs[0]; // Default record (CountryCode__c = null)
+
+        if (fallback != null) {
+            return fallback;
+        }
+        // Hard default if no records exist
+        return new KS_ReferPartnerFlowConfig__mdt(
+            CountryCode__c             = 'DEFAULT',
+            UseCommonFlag__c           = false,
+            RequiresStateFilter__c     = false,
+            StateFilterFieldApiName__c = null
+        );
     }
 
     private static List<Account> executeAccountQuery(KS_ReferPartnerFlowConfig__mdt config, String leadCountry) {
         // Base condition: accounts flagged for referral in this country
-        String whereClause = 'KS_ReferToPartner__c = true AND BillingCountry = :leadCountry';
+        String whereClause = 'KS_QualifiedRefertoPartner__c = true AND BillingCountryCode = :leadCountry';
 
         if (config.UseCommonFlag__c) {
             // DACH: include accounts shared across DE/AT/CH
-            whereClause = '(KS_ReferToPartner__c = true AND BillingCountry = :leadCountry)'
+            whereClause = '(KS_QualifiedRefertoPartner__c = true AND BillingCountryCode = :leadCountry)'
                         + ' OR KS_CommonForDACH__c = true';
         }
 

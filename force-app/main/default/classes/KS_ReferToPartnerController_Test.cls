@@ -13,32 +13,18 @@ private class KS_ReferToPartnerController_Test {
         settings.EncryptionKey__c = '0123456789ABCDEF0123456789ABCDEF';
         upsert settings;
 
-        // Shell email templates
-        insert new EmailTemplate(
-            Name = 'KS RTP Initial Shell', DeveloperName = 'KS_RTP_Initial_Shell',
-            TemplateType = 'html', FolderId = UserInfo.getUserId(),
-            HtmlValue = '<html><body>{EmailContent}</body></html>',
-            Body = 'Shell', Subject = 'Refer', IsActive = true
-        );
-        insert new EmailTemplate(
-            Name = 'KS RTP Reminder Shell', DeveloperName = 'KS_RTP_Reminder_Shell',
-            TemplateType = 'html', FolderId = UserInfo.getUserId(),
-            HtmlValue = '<html><body>{EmailContent}</body></html>',
-            Body = 'Shell', Subject = 'Reminder', IsActive = true
-        );
-
         // Accounts
         insert new List<Account>{
             new Account(
-                Name = 'DE Partner', BillingCountry = 'DE',
+                Name = 'DE Partner', BillingCountryCode = 'DE',
                 BillingCity = 'Munich',
-                KS_ReferToPartner__c = true,
+                KS_QualifiedRefertoPartner__c = true,
                 KS_Email__c = 'de@partner.de'
             ),
             new Account(
-                Name = 'FR Partner', BillingCountry = 'FR',
+                Name = 'FR Partner', BillingCountryCode = 'FR',
                 BillingCity = 'Paris',
-                KS_ReferToPartner__c = true,
+                KS_QualifiedRefertoPartner__c = true,
                 KS_Email__c = 'fr@partner.fr'
             )
         };
@@ -48,14 +34,14 @@ private class KS_ReferToPartnerController_Test {
             FirstName = 'Klaus', LastName = 'Schmidt',
             Email = 'k.schmidt@test.de',
             Company = 'Test GmbH',
-            Country = 'DE',
+            CountryCode = 'DE',
             KS_Language__c = 'de',
             KS_Client__c = 'DT'
         );
     }
 
     private static Lead getTestLead() {
-        return [SELECT Id, Email, Country, State, HasOptedOutOfEmail,
+        return [SELECT Id, Email, CountryCode, StateCode, HasOptedOutOfEmail,
                        KS_Referred_Account_Ids__c, KS_Language__c, KS_Client__c
                 FROM Lead LIMIT 1];
     }
@@ -82,7 +68,7 @@ private class KS_ReferToPartnerController_Test {
         Lead noEmailLead = new Lead(
             FirstName = 'No', LastName = 'Email',
             Company = 'Test', Email = null,
-            Country = 'DE', KS_Language__c = 'de', KS_Client__c = 'DT'
+            CountryCode = 'DE', KS_Language__c = 'de', KS_Client__c = 'DT'
         );
         insert noEmailLead;
 
@@ -102,7 +88,7 @@ private class KS_ReferToPartnerController_Test {
         Lead optedOutLead = new Lead(
             FirstName = 'Opted', LastName = 'Out',
             Company = 'Test', Email = 'opted@test.de',
-            Country = 'DE', HasOptedOutOfEmail = true,
+            CountryCode = 'DE', HasOptedOutOfEmail = true,
             KS_Language__c = 'de', KS_Client__c = 'DT'
         );
         insert optedOutLead;
@@ -131,13 +117,13 @@ private class KS_ReferToPartnerController_Test {
 
         // Verify business relation was created
         List<KS_BusinessRelation__c> rels = [
-            SELECT Id, KS_Lead__c, KS_Account__c, KS_Status__c
+            SELECT Id, KS_Lead__c, KS_TargetAccount__c, KS_RelationshipType__c
             FROM KS_BusinessRelation__c
             WHERE KS_Lead__c = :lead.Id
         ];
         System.assertEquals(1, rels.size(), 'One business relation should be created');
-        System.assertEquals('Referred', rels[0].KS_Status__c);
-        System.assertEquals(acc.Id, rels[0].KS_Account__c);
+        System.assertEquals('is Customer from', rels[0].KS_RelationshipType__c);
+        System.assertEquals(acc.Id, rels[0].KS_TargetAccount__c);
 
         // Verify lead was updated
         Lead updated = [

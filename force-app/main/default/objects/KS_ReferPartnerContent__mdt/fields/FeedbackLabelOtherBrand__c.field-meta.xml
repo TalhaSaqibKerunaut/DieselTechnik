@@ -4,7 +4,7 @@
     <description>Reminder only. Label for the feedback link: lead bought a different brand.</description>
     <externalId>false</externalId>
     <label>Feedback Label: Other Brand</label>
-    <length>500</length>
+    <length>255</length>
     <type>Text</type>
     <unique>false</unique>
 </CustomField>

@@ -85,7 +85,7 @@ public with sharing class KS_ReferToPartnerEmailService {
                    Owner.Name
             FROM Lead
             WHERE Id = :leadId
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
             LIMIT 1
         ];
         if (leads.isEmpty()) {
@@ -101,7 +101,7 @@ public with sharing class KS_ReferToPartnerEmailService {
                    KS_Email__c, Phone, Website, KS_PartnerShopUrl__c
             FROM Account
             WHERE Id IN :accountIds
-            WITH SECURITY_ENFORCED
+            WITH USER_MODE
         ];
     }
 
@@ -109,28 +109,32 @@ public with sharing class KS_ReferToPartnerEmailService {
 
     @TestVisible
     private KS_ReferPartnerContent__mdt loadContent(String langCode, String type) {
-        // Normalise language code (e.g. 'pt_BR' → 'PTBR')
         String code = normaliseLanguageCode(langCode);
 
-        List<KS_ReferPartnerContent__mdt> records = [
+        // CMT SOQL does not support OR — run two queries: exact match then default fallback
+        List<KS_ReferPartnerContent__mdt> exact = [
             SELECT LanguageCode__c, Type__c, Subject__c, BodyHtml__c, IsDefault__c,
                    FeedbackLabelBuyDT__c, FeedbackLabelOtherBrand__c, FeedbackLabelDidNotBuy__c
             FROM KS_ReferPartnerContent__mdt
-            WHERE Type__c = :type
-              AND (LanguageCode__c = :code OR IsDefault__c = true)
-            ORDER BY IsDefault__c ASC  // non-default (exact match) sorts first (false < true)
+            WHERE Type__c = :type AND LanguageCode__c = :code
+            LIMIT 1
         ];
+        if (!exact.isEmpty()) {
+            return exact[0];
+        }
 
-        if (records.isEmpty()) {
-            throw new KS_RTPException('No email content found for type=' + type + ', lang=' + code);
+        List<KS_ReferPartnerContent__mdt> defaultRec = [
+            SELECT LanguageCode__c, Type__c, Subject__c, BodyHtml__c, IsDefault__c,
+                   FeedbackLabelBuyDT__c, FeedbackLabelOtherBrand__c, FeedbackLabelDidNotBuy__c
+            FROM KS_ReferPartnerContent__mdt
+            WHERE Type__c = :type AND IsDefault__c = true
+            LIMIT 1
+        ];
+        if (!defaultRec.isEmpty()) {
+            return defaultRec[0];
         }
-        // Return exact match first; fall back to default
-        for (KS_ReferPartnerContent__mdt rec : records) {
-            if (rec.LanguageCode__c == code) {
-                return rec;
-            }
-        }
-        return records[0]; // default (IsDefault__c = true)
+
+        throw new KS_RTPException('No email content found for type=' + type + ', lang=' + code);
     }
 
     @TestVisible
@@ -256,22 +260,25 @@ public with sharing class KS_ReferToPartnerEmailService {
 
     @TestVisible
     private Id getOrgWideEmailId(String client) {
+        // KS_OrgWideEmailMap__mdt stores an email address; look up OWA by that address
+        String emailAddress = null;
         if (String.isNotBlank(client)) {
             List<KS_OrgWideEmailMap__mdt> maps = [
-                SELECT OWAId__c
+                SELECT KS_Email__c
                 FROM KS_OrgWideEmailMap__mdt
                 WHERE MasterLabel = :client
                 LIMIT 1
             ];
-            if (!maps.isEmpty() && String.isNotBlank(maps[0].OWAId__c)) {
-                return (Id) maps[0].OWAId__c;
+            if (!maps.isEmpty() && String.isNotBlank(maps[0].KS_Email__c)) {
+                emailAddress = maps[0].KS_Email__c;
             }
         }
-        // Fallback: resolve by email address stored in Custom Label
-        String fallbackEmail = System.Label.KS_DefaultSenderEmail;
+        if (emailAddress == null) {
+            emailAddress = System.Label.KS_DefaultSenderEmail;
+        }
         List<OrgWideEmailAddress> owas = [
             SELECT Id FROM OrgWideEmailAddress
-            WHERE Address = :fallbackEmail
+            WHERE Address = :emailAddress
             LIMIT 1
         ];
         return owas.isEmpty() ? null : owas[0].Id;
@@ -311,7 +318,7 @@ public with sharing class KS_ReferToPartnerEmailService {
         if (String.isBlank(langCode)) { return 'EN'; }
         // Salesforce locale codes use underscores (e.g. pt_BR); our CMT uses PTBR, RU, AR etc.
         Map<String, String> localeMap = new Map<String, String>{
-            'pt_BR' => 'PTBR',
+            'pt_br' => 'PTBR',
             'pt'    => 'PTBR',
             'de'    => 'DE',
             'es'    => 'ES',
@@ -320,8 +327,8 @@ public with sharing class KS_ReferToPartnerEmailService {
             'ru'    => 'RU',
             'ar'    => 'AR',
             'en'    => 'EN',
-            'en_US' => 'EN',
-            'en_GB' => 'EN'
+            'en_us' => 'EN',
+            'en_gb' => 'EN'
         };
         String lower = langCode.toLowerCase();
         return localeMap.containsKey(lower) ? localeMap.get(lower) : 'EN';

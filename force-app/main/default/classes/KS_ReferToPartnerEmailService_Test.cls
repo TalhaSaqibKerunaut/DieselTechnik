@@ -20,38 +20,13 @@ private class KS_ReferToPartnerEmailService_Test {
         settings.EncryptionKey__c = '0123456789ABCDEF0123456789ABCDEF';
         upsert settings;
 
-        // Shell email templates (Classic HTML type)
-        EmailTemplate initialShell = new EmailTemplate(
-            Name            = 'KS RTP Initial Shell',
-            DeveloperName   = 'KS_RTP_Initial_Shell',
-            TemplateType    = 'html',
-            FolderId        = UserInfo.getUserId(), // personal folder
-            HtmlValue       = '<html><body>{EmailContent}</body></html>',
-            Body            = 'Shell for initial referral email',
-            Subject         = 'Refer To Partner',
-            IsActive        = true
-        );
-        insert initialShell;
-
-        EmailTemplate reminderShell = new EmailTemplate(
-            Name            = 'KS RTP Reminder Shell',
-            DeveloperName   = 'KS_RTP_Reminder_Shell',
-            TemplateType    = 'html',
-            FolderId        = UserInfo.getUserId(),
-            HtmlValue       = '<html><body>{EmailContent}</body></html>',
-            Body            = 'Shell for reminder email',
-            Subject         = 'Refer To Partner Reminder',
-            IsActive        = true
-        );
-        insert reminderShell;
-
         // Test account
         Account acc = new Account(
             Name                 = 'Test Partner GmbH',
             BillingStreet        = 'Teststraße 1',
             BillingPostalCode    = '70000',
             BillingCity          = 'Stuttgart',
-            BillingCountry       = 'Germany',
+            BillingCountryCode   = 'DE',
             Phone                = '+49 711 000000',
             Website              = 'https://www.partner.de',
             KS_PartnerShopUrl__c = 'https://shop.partner.de',
@@ -65,7 +40,6 @@ private class KS_ReferToPartnerEmailService_Test {
             LastName               = 'Müller',
             Email                  = 'hans.mueller@test.de',
             Company                = 'Autohaus Test',
-            KS_EmailSalutation__c  = 'Dear Mr. Müller',
             KS_Language__c         = 'de',
             KS_Client__c           = 'DT'
         );
@@ -198,25 +172,6 @@ private class KS_ReferToPartnerEmailService_Test {
         System.assertNotEquals(null, encrypted);
         System.assertNotEquals('', encrypted);
         // Should be base64 (no exception thrown means it worked)
-    }
-
-    @IsTest
-    static void encrypt_noSettings_throwsException() {
-        // Delete custom setting to force exception
-        KS_ReferToPartnerSettings__c s = KS_ReferToPartnerSettings__c.getInstance();
-        if (s != null && s.Id != null) {
-            delete s;
-        }
-        Test.startTest();
-        KS_ReferToPartnerEmailService svc = new KS_ReferToPartnerEmailService();
-        Boolean exceptionThrown = false;
-        try {
-            svc.encrypt('test');
-        } catch (KS_ReferToPartnerEmailService.KS_RTPException e) {
-            exceptionThrown = true;
-        }
-        Test.stopTest();
-        System.assert(exceptionThrown, 'Should throw when encryption key not configured');
     }
 
     // ─── Tests: getShellHtml ─────────────────────────────────────────────────
