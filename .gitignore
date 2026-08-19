@@ -49,7 +49,8 @@ force-app/main/default/classes/KS_ReferToPartnerReminder.cls
 force-app/main/default/classes/KS_ReferToPartnerReminder.cls-meta.xml
 force-app/main/default/email/unfiled$public/Refer_To_Partner_EN_1705320576898.email
 force-app/main/default/email/unfiled$public/Refer_To_Partner_EN_1705320576898.email-meta.xml
-force-app/main/default/flows/
+force-app/main/default/flows/*
+!force-app/main/default/flows/X03_b_Reminder_of_Refer_to_Partner_V2.flow-meta.xml
 force-app/main/default/pages/
 
 # Python Salesforce Functions

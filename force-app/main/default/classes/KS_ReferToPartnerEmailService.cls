@@ -58,8 +58,8 @@ public with sharing class KS_ReferToPartnerEmailService {
         KS_ReferPartnerContent__mdt content = loadContent(lead.KS_Language__c, 'Reminder');
         String shellHtml = getShellHtml(System.Label.KS_RTP_ReminderShellTemplate);
 
-        String accountInfoHtml = buildAccountInfoHtmlBlock(accounts);
-        String feedbackHtml = buildFeedbackButtonsHtml(leadId, accountIds, content);
+        String accountInfoHtml = buildAccountInfoWithButtonsHtmlBlock(accounts, leadId);
+        String feedbackHtml = buildFeedbackButtonsHtml(leadId, content);
 
         Map<String, String> tokens = new Map<String, String>{
             '{Salutation}'      => safeStr(lead.KS_EmailSalutation__c),
@@ -157,9 +157,7 @@ public with sharing class KS_ReferToPartnerEmailService {
 
     @TestVisible
     private String assembleEmail(String shellHtml, String contentHtml, Map<String, String> tokens) {
-        // First inject the content body into the shell
         String assembled = shellHtml.replace('{EmailContent}', contentHtml != null ? contentHtml : '');
-        // Then replace all tokens
         for (String token : tokens.keySet()) {
             assembled = assembled.replace(token, tokens.get(token) != null ? tokens.get(token) : '');
         }
@@ -173,18 +171,40 @@ public with sharing class KS_ReferToPartnerEmailService {
         }
         String block = '';
         for (Account acc : accounts) {
-            block += buildSingleAccountHtml(acc);
+            block += buildSingleAccountHtml(acc, null);
         }
         return block;
     }
 
-    private String buildSingleAccountHtml(Account acc) {
+    // Builds account list with a clickable square before each account name for reminder emails
+    private String buildAccountInfoWithButtonsHtmlBlock(List<Account> accounts, Id leadId) {
+        if (accounts == null || accounts.isEmpty()) {
+            return '';
+        }
+        String pageBaseUrl = URL.getOrgDomainUrl().toExternalForm() + '/apex/KS_ReferToParterHandler';
+        String encLeadId   = encrypt(String.valueOf(leadId));
+        String baseParams  = '?LeadId=' + EncodingUtil.urlEncode(encLeadId, 'UTF-8');
+        String block = '';
+        for (Account acc : accounts) {
+            String encAccId = encrypt(String.valueOf(acc.Id));
+            String btnUrl   = pageBaseUrl + baseParams + '&AccountId=' + EncodingUtil.urlEncode(encAccId, 'UTF-8');
+            block += buildSingleAccountHtml(acc, btnUrl);
+        }
+        return block;
+    }
+
+    private String buildSingleAccountHtml(Account acc, String buttonUrl) {
         // Resolve URL: prefer KS_PartnerShopUrl__c, fall back to Website
         String url = String.isNotBlank(acc.KS_PartnerShopUrl__c) ? acc.KS_PartnerShopUrl__c : acc.Website;
 
         String addressLine = buildAddressLine(acc);
 
-        String html = '<p><strong>' + escHtml(acc.Name) + '</strong><br />';
+        String html = '<p>';
+        if (buttonUrl != null) {
+            html += '<a href="' + buttonUrl + '" style="display:inline-block;width:14px;height:14px;'
+                 + 'background-color:#5AAB2E;border-radius:2px;vertical-align:middle;margin-right:6px;"> </a>';
+        }
+        html += '<strong>' + escHtml(acc.Name) + '</strong><br />';
         if (String.isNotBlank(addressLine)) {
             html += escHtml(addressLine) + '<br />';
         }
@@ -213,35 +233,35 @@ public with sharing class KS_ReferToPartnerEmailService {
     // ─── Private: feedback buttons (reminder only) ────────────────────────────
 
     @TestVisible
-    private String buildFeedbackButtonsHtml(Id leadId, List<Id> accountIds, KS_ReferPartnerContent__mdt content) {
+    private String buildFeedbackButtonsHtml(Id leadId, KS_ReferPartnerContent__mdt content) {
         String pageBaseUrl = URL.getOrgDomainUrl().toExternalForm() + '/apex/KS_ReferToParterHandler';
 
-        String accountIdsCsv = String.join(new List<Id>(accountIds), ',');
-
-        String encLeadId      = encrypt(String.valueOf(leadId));
-        String encAccountIds  = encrypt(accountIdsCsv);
-
-        String baseLinkParams = '?leadId=' + EncodingUtil.urlEncode(encLeadId, 'UTF-8')
-                              + '&accountIds=' + EncodingUtil.urlEncode(encAccountIds, 'UTF-8');
+        String encLeadId  = encrypt(String.valueOf(leadId));
+        String baseParams = '?LeadId=' + EncodingUtil.urlEncode(encLeadId, 'UTF-8');
 
         String labelBuy   = safeStr(content.FeedbackLabelBuyDT__c);
         String labelOther = safeStr(content.FeedbackLabelOtherBrand__c);
         String labelNot   = safeStr(content.FeedbackLabelDidNotBuy__c);
 
-        String html = '<p>';
-        html += buildFeedbackLink(pageBaseUrl + baseLinkParams + '&feedback=1', labelBuy);
-        html += '<br />';
-        html += buildFeedbackLink(pageBaseUrl + baseLinkParams + '&feedback=2', labelOther);
-        html += '<br />';
-        html += buildFeedbackLink(pageBaseUrl + baseLinkParams + '&feedback=3', labelNot);
-        html += '</p>';
+        String html = buildFeedbackLink(pageBaseUrl + baseParams + '&AccountId=OtherDTShop', labelBuy);
+        html += buildFeedbackLink(pageBaseUrl + baseParams + '&AccountId=AnotherBrand', labelOther);
+        html += buildFeedbackLink(pageBaseUrl + baseParams + '&AccountId=DidNotBuy', labelNot);
         return html;
     }
 
     private String buildFeedbackLink(String url, String label) {
-        return '<a href="' + url + '" style="display:inline-block;padding:8px 16px;'
-             + 'background-color:#003366;color:#ffffff;text-decoration:none;border-radius:4px;">'
-             + escHtml(label) + '</a>';
+        return '<table cellpadding="0" cellspacing="0" border="0" style="margin-bottom:10px">'
+             + '<tr>'
+             + '<td style="vertical-align:middle;padding-right:8px">'
+             + '<a href="' + url + '" style="display:inline-block;width:14px;height:14px;'
+             + 'background-color:#5AAB2E;border-radius:2px;"> </a>'
+             + '</td>'
+             + '<td style="vertical-align:middle">'
+             + '<a href="' + url + '" style="color:#1a1a1a;text-decoration:none;font-size:15px;">'
+             + escHtml(label) + '</a>'
+             + '</td>'
+             + '</tr>'
+             + '</table>';
     }
 
     // ─── Private: encryption ─────────────────────────────────────────────────
