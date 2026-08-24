@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomMetadata xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <label>FR03</label>
+    <protected>false</protected>
+    <values>
+        <field>KS_CountryCode__c</field>
+        <value xsi:type="xsd:string">FR</value>
+    </values>
+    <values>
+        <field>KS_PostalCodeEnd__c</field>
+        <value xsi:type="xsd:string">03999</value>
+    </values>
+    <values>
+        <field>KS_PostalCodeStart__c</field>
+        <value xsi:type="xsd:string">03000</value>
+    </values>
+    <values>
+        <field>KS_StateCode__c</field>
+        <value xsi:type="xsd:string">03</value>
+    </values>
+    <values>
+        <field>KS_Region__c</field>
+        <value xsi:type="xsd:string">Auvergne-Rhône-Alpes</value>
+    </values>
+</CustomMetadata>

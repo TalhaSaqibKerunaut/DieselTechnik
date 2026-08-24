@@ -1,0 +1,1147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>58.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_the_Zip_Code</name>
+        <label>Check the Zip Code</label>
+        <locationX>3614</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>AC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CheckZip</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead</targetReference>
+            </connector>
+            <label>AC</label>
+        </rules>
+        <rules>
+            <name>AL</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CheckZipAL</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_AL</targetReference>
+            </connector>
+            <label>AL</label>
+        </rules>
+        <rules>
+            <name>AM</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>CheckZipAM</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_AM</targetReference>
+            </connector>
+            <label>AM</label>
+        </rules>
+        <rules>
+            <name>AP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>Contains</operator>
+                <rightValue>
+                    <elementReference>ZipCodeAP</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_AP</targetReference>
+            </connector>
+            <label>AP</label>
+        </rules>
+        <rules>
+            <name>BA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeBA</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_BA</targetReference>
+            </connector>
+            <label>BA</label>
+        </rules>
+        <rules>
+            <name>CE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeCE</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_CE</targetReference>
+            </connector>
+            <label>CE</label>
+        </rules>
+        <rules>
+            <name>DF</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeDF</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_DF</targetReference>
+            </connector>
+            <label>DF</label>
+        </rules>
+        <rules>
+            <name>ES</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeES</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_ES</targetReference>
+            </connector>
+            <label>ES</label>
+        </rules>
+        <rules>
+            <name>GO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeGO</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_GO</targetReference>
+            </connector>
+            <label>GO</label>
+        </rules>
+        <rules>
+            <name>MA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeMA</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_MA</targetReference>
+            </connector>
+            <label>MA</label>
+        </rules>
+        <rules>
+            <name>MG</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeMG</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_MG</targetReference>
+            </connector>
+            <label>MG</label>
+        </rules>
+        <rules>
+            <name>MS</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeMS</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_MS</targetReference>
+            </connector>
+            <label>MS</label>
+        </rules>
+        <rules>
+            <name>MT</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeMT</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_MT</targetReference>
+            </connector>
+            <label>MT</label>
+        </rules>
+        <rules>
+            <name>PA</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodePA</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_PA</targetReference>
+            </connector>
+            <label>PA</label>
+        </rules>
+        <rules>
+            <name>PB</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodePB</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_PB</targetReference>
+            </connector>
+            <label>PB</label>
+        </rules>
+        <rules>
+            <name>PE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodePE</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_PE</targetReference>
+            </connector>
+            <label>PE</label>
+        </rules>
+        <rules>
+            <name>PI</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodePI</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_PI</targetReference>
+            </connector>
+            <label>PI</label>
+        </rules>
+        <rules>
+            <name>PR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodePR</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_PR</targetReference>
+            </connector>
+            <label>PR</label>
+        </rules>
+        <rules>
+            <name>RJ</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeRJ</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_RJ</targetReference>
+            </connector>
+            <label>RJ</label>
+        </rules>
+        <rules>
+            <name>RN</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeRN</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_RN</targetReference>
+            </connector>
+            <label>RN</label>
+        </rules>
+        <rules>
+            <name>RO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeRO</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_RO</targetReference>
+            </connector>
+            <label>RO</label>
+        </rules>
+        <rules>
+            <name>RR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeRR</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_RR</targetReference>
+            </connector>
+            <label>RR</label>
+        </rules>
+        <rules>
+            <name>RS</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeRS</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_RS</targetReference>
+            </connector>
+            <label>RS</label>
+        </rules>
+        <rules>
+            <name>SC</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeSC</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_SC</targetReference>
+            </connector>
+            <label>SC</label>
+        </rules>
+        <rules>
+            <name>SE</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeSE</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_SE</targetReference>
+            </connector>
+            <label>SE</label>
+        </rules>
+        <rules>
+            <name>SP</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeSP</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_SP</targetReference>
+            </connector>
+            <label>SP</label>
+        </rules>
+        <rules>
+            <name>TO</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.PostalCode</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <elementReference>ZipCodeTO</elementReference>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Update_lead_TO</targetReference>
+            </connector>
+            <label>TO</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <formulas>
+        <name>CheckZip</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;69900-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;69999-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>CheckZipAL</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;57000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;57990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>CheckZipAM</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;69000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;69290-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeAP</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;68900-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;68999-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeBA</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;40000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;48990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeCE</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;60000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;63990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeDF</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;70000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;73690-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeES</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;29000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;29990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeGO</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;73700-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;76790-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeMA</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;65000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;65990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeMG</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;30000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;39990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeMS</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;79000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;79990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeMT</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;78000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;78890-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodePA</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;66000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;68890-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodePB</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;58000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;58990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodePE</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;50000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;56990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodePI</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;64000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;64990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodePR</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;80000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;86990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeRJ</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;20000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;28990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeRN</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;59000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;59990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeRO</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;76800-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;76999-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeRR</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;69300-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;69399-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeRS</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;90000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;99990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeSC</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;87000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;89990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeSE</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;49000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;49990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeSP</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;01000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;19990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <formulas>
+        <name>ZipCodeTO</name>
+        <dataType>String</dataType>
+        <expression>IF(
+  AND(
+    {!$Record.PostalCode} &gt;= &apos;77000-000&apos;,
+    {!$Record.PostalCode} &lt;= &apos;77990-000&apos;
+  ),
+  {!$Record.PostalCode},
+  &apos;&apos;
+)</expression>
+    </formulas>
+    <interviewLabel>05. Match ZipCode and assign State {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>05. Match ZipCode and Assign State</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Update_lead</name>
+        <label>Update lead</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>AC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_AL</name>
+        <label>Update lead AL</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>AL</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_AM</name>
+        <label>Update lead AM</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>AM</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_AP</name>
+        <label>Update lead AP</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>AP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_BA</name>
+        <label>Update lead BA</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>BA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_CE</name>
+        <label>Update lead CE</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>CE</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_DF</name>
+        <label>Update lead DF</label>
+        <locationX>1634</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>DF</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_ES</name>
+        <label>Update lead ES</label>
+        <locationX>1898</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>ES</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_GO</name>
+        <label>Update lead GO</label>
+        <locationX>2162</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>GO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_MA</name>
+        <label>Update lead MA</label>
+        <locationX>2426</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>MA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_MG</name>
+        <label>Update lead MG</label>
+        <locationX>2690</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>MG</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_MS</name>
+        <label>Update lead MS</label>
+        <locationX>2954</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>MS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_MT</name>
+        <label>Update lead MT</label>
+        <locationX>3218</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>MT</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_PA</name>
+        <label>Update lead PA</label>
+        <locationX>3482</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>PA</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_PB</name>
+        <label>Update lead PB</label>
+        <locationX>3746</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>PB</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_PE</name>
+        <label>Update lead PE</label>
+        <locationX>4010</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>PE</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_PI</name>
+        <label>Update lead PI</label>
+        <locationX>4274</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>PI</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_PR</name>
+        <label>Update lead PR</label>
+        <locationX>4538</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>PR</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_RJ</name>
+        <label>Update lead RJ</label>
+        <locationX>4802</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>RJ</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_RN</name>
+        <label>Update lead RN</label>
+        <locationX>5066</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>RN</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_RO</name>
+        <label>Update lead RO</label>
+        <locationX>5330</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>RO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_RR</name>
+        <label>Update lead RR</label>
+        <locationX>5594</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>RR</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_RS</name>
+        <label>Update lead RS</label>
+        <locationX>5858</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>RS</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_SC</name>
+        <label>Update lead SC</label>
+        <locationX>6122</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>SC</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_SE</name>
+        <label>Update lead SE</label>
+        <locationX>6386</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>SE</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_SP</name>
+        <label>Update lead SP</label>
+        <locationX>6650</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>SP</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <recordUpdates>
+        <name>Update_lead_TO</name>
+        <label>Update lead TO</label>
+        <locationX>6914</locationX>
+        <locationY>431</locationY>
+        <inputAssignments>
+            <field>StateCode</field>
+            <value>
+                <stringValue>TO</stringValue>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>3488</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Check_the_Zip_Code</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>PostalCode</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <filters>
+            <field>CountryCode</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>BR</stringValue>
+            </value>
+        </filters>
+        <object>Lead</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <variables>
+        <name>RecordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+</Flow>

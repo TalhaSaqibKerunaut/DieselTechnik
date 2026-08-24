@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Get_State_Code_by_Postal_Code</name>
+        <label>Get State Code by Postal Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <actionName>KS_GetStateByPostalCode</actionName>
+        <actionType>apex</actionType>
+        <connector>
+            <targetReference>Check_State_Code</targetReference>
+        </connector>
+        <flowTransactionModel>Automatic</flowTransactionModel>
+        <inputParameters>
+            <name>countryCode</name>
+            <value>
+                <elementReference>$Record.BillingCountryCode</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>postalCode</name>
+            <value>
+                <elementReference>$Record.BillingPostalCode</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>KS_GetStateByPostalCode</nameSegment>
+        <offset>0</offset>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </actionCalls>
+    <apiVersion>67.0</apiVersion>
+    <areMetricsLoggedToDataCloud>false</areMetricsLoggedToDataCloud>
+    <decisions>
+        <name>Check_State_Code</name>
+        <label>Check State Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>Default Outcome</defaultConnectorLabel>
+        <rules>
+            <name>State_Code_Available</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>Get_State_Code_by_Postal_Code.stateCode</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Assign_State_Code</targetReference>
+            </connector>
+            <label>State Code Available</label>
+        </rules>
+    </decisions>
+    <environments>Default</environments>
+    <interviewLabel>Assign State based on Postal Code Range - Account {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Assign State based on Postal Code Range - Account</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <recordUpdates>
+        <name>Assign_State_Code</name>
+        <label>Assign State Code</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <inputAssignments>
+            <field>BillingStateCode</field>
+            <value>
+                <elementReference>Get_State_Code_by_Postal_Code.stateCode</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>KS_BillingRegion__c</field>
+            <value>
+                <elementReference>Get_State_Code_by_Postal_Code.region</elementReference>
+            </value>
+        </inputAssignments>
+        <inputReference>$Record</inputReference>
+    </recordUpdates>
+    <start>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Get_State_Code_by_Postal_Code</targetReference>
+        </connector>
+        <filterFormula>TEXT({!$Record.BillingCountryCode})!=null &amp;&amp; {!$Record.BillingPostalCode}!=null &amp;&amp;
+(ISNEW() || ISCHANGED({!$Record.BillingCountryCode}) || ISCHANGED({!$Record.BillingPostalCode}))</filterFormula>
+        <object>Account</object>
+        <recordTriggerType>CreateAndUpdate</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+</Flow>
